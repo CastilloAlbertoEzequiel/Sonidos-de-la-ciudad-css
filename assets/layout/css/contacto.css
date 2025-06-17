@@ -1,0 +1,684 @@
+/* =====================================================
+   SONIDOS DE LA CIUDAD - ENTREGABLE I
+   CSS Minimalista con técnicas tradicionales
+   ===================================================== */
+
+/* =====================================================
+   1. RESET Y CONFIGURACIÓN BÁSICA
+   ===================================================== */
+
+/* Selector universal */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Selector de tipo */
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    background-color: #ffffff;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* =====================================================
+   2. PALETA DE COLORES MINIMALISTA
+   Inspirada en: https://color.adobe.com/es/create/color-wheel
+   ===================================================== */
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #dbb434;
+    --accent-color: #e74c3c;
+    --text-color: #34495e;
+    --light-gray: #f8f9fa;
+    --white: #ffffff;
+    --border-color: #dee2e6;
+}
+
+/* =====================================================
+   3. TIPOGRAFÍA
+   ===================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Selector por ID */
+#main-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    margin: 0;
+    text-align: center;
+}
+
+/* =====================================================
+   4. CONTENEDORES Y LAYOUT
+   ===================================================== */
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Clearfix para floats */
+.clearfix::after { content: ""; display: table; clear: both; }
+
+/* =====================================================
+   5. HEADER - POSICIONAMIENTO STICKY
+   ===================================================== */
+
+header {
+    background-color: var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Pseudoclase hover para header */
+header:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+
+/* =====================================================
+   6. NAVEGACIÓN CON FLOATS
+   ===================================================== */
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+/* =====================================================
+   7. MAIN CONTENT
+   ===================================================== */
+
+main {
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 1rem;
+    background: var(--light-gray);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+main h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+main p {
+    margin-bottom: 1rem;
+}
+
+/* =====================================================
+   8. SECCIÓN DE BIENVENIDA
+   ===================================================== */
+
+.welcome-section {
+    background-color: var(--light-gray);
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.welcome-section p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =====================================================
+   9. GÉNEROS MUSICALES - FLOAT LAYOUT
+   ===================================================== */
+
+.genres-container {
+    text-align: center;
+}
+
+.genre-item {
+    float: left;
+    width: 20%;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: var(--white);
+    margin-bottom: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.genre-item:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Transformación: rotación en hover */
+.rotate-hover:hover {
+    transform: rotate(2deg) scale(1.05);
+}
+
+/* =====================================================
+   10. SECCIÓN DE VIDEO
+   ===================================================== */
+
+.video-section {
+    text-align: center;
+    background-color: var(--light-gray);
+    border-radius: 8px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Transformación: escala en hover */
+.scale-hover:hover {
+    transform: scale(1.02);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 315px;
+    border: none;
+}
+
+/* =====================================================
+   11. ARTISTAS - POSICIONAMIENTO RELATIVO
+   ===================================================== */
+
+.artists-container {
+    position: relative;
+}
+
+.artist-card {
+    float: left;
+    width: 25%;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: var(--white);
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.artist-card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-color: var(--secondary-color);
+}
+
+/* Transformación: slide up */
+.slide-up:hover {
+    transform: translateY(-5px);
+}
+
+.artist-icon {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.artist-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.artist-genre {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+/* =====================================================
+   12. SECCIÓN INSTAGRAM
+   ===================================================== */
+
+.instagram-section {
+    text-align: center;
+}
+
+.instagram-widget {
+    margin: 2rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.instagram-link {
+    display: inline-block;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.instagram-link:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* =====================================================
+   13. CALL TO ACTION
+   ===================================================== */
+
+.cta-section {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 8px;
+}
+
+.cta-section .section-title {
+    color: var(--white);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* =====================================================
+   14. FOOTER
+   ===================================================== */
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-link {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.social-link:hover {
+    color: var(--secondary-color);
+    transform: translateY(-3px) rotate(5deg);
+}
+
+/* =====================================================
+   15. RESPONSIVE DESIGN - TRES BREAKPOINTS
+   ===================================================== */
+
+/* Tablet (768px - 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .container {
+        padding: 0 2rem;
+    }
+    
+    .genre-item {
+        width: 33.33%;
+    }
+    
+    .artist-card {
+        width: 50%;
+    }
+    
+    #main-title {
+        font-size: 1.8rem;
+    }
+    
+    nav li {
+        margin: 0 0.3rem;
+    }
+    
+    nav a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Móvil (hasta 767px) */
+@media screen and (max-width: 767px) {
+    .container, main { padding: 1rem; }
+    main { font-size: 1rem; }
+    nav li { display: block; margin: 0.5rem 0; }
+    nav a { display: block; width: 100%; padding: 0.8rem; }
+    #main-title {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    /* Cambiar floats a display block */
+    .genre-item {
+        float: none;
+        width: 100%;
+        display: block;
+        margin-bottom: 1rem;
+    }
+    
+    .artist-card {
+        float: none;
+        width: 100%;
+        display: block;
+        margin-bottom: 1rem;
+    }
+    
+    .video-container {
+        width: 100%;
+    }
+    
+    .video-container iframe {
+        height: 250px;
+    }
+    
+    .section {
+        padding: 2rem 0;
+    }
+}
+
+/* Desktop grande (1200px+) */
+@media screen and (min-width: 1200px) {
+    .container {
+        padding: 0 3rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    #main-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* =====================================================
+   16. ANIMACIONES Y TRANSICIONES ADICIONALES
+   ===================================================== */
+
+/* Animación sutil para elementos que aparecen */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Efecto de pulsación para botones importantes */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+    }
+}
+
+.cta-button {
+    animation: pulse 2s infinite;
+}
+
+/* =====================================================
+   17. MEJORAS DE ACCESIBILIDAD
+   ===================================================== */
+
+/* Focus visible para navegación por teclado */
+a:focus, button:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Mejor contraste para elementos interactivos */
+.genre-item:focus,
+.artist-card:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Texto más legible en pantallas pequeñas */
+@media screen and (max-width: 767px) {
+    body {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+    
+    .welcome-section p {
+        font-size: 1rem;
+    }
+}
+
+/* Estilos para la sección de contacto */
+.contacto-section {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2.5rem 1.5rem;
+    background: var(--light-gray);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.contacto-descripcion {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.contacto-form {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    padding: 0.7rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #fff;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+}
+
+.form-button {
+    background: var(--accent-color);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 0.5rem;
+}
+.form-button:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.info-contacto {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
+}
+
+.info-title {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+    font-weight: 700;
+}
+
+.info-item {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.info-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.info-link:hover {
+    color: var(--accent-color);
+}
+
+.redes-section {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.redes-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+.redes-list li {
+    display: inline-block;
+    margin: 0 0.7rem;
+}
+
+.red-social-link {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+.red-social-link:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive */
+@media screen and (max-width: 767px) {
+    .contacto-section { padding: 1rem; }
+    .contacto-form { padding: 1rem; }
+    .info-contacto { padding: 1rem 0.5rem; }
+    .section-title { font-size: 1.5rem; }
+}
